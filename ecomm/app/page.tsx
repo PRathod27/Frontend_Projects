@@ -1,8 +1,8 @@
-import { Carousel } from "@/components/carousel";
-import { Button } from "@/components/ui/button";
-import { stripe } from "@/lib/stripe";
 import Image from "next/image";
+import { stripe } from "@/lib/stripe";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Carousel } from "@/components/carousel";
 
 export default async function Home() {
   const products = await stripe.products.list({
@@ -10,9 +10,8 @@ export default async function Home() {
     limit: 5,
   });
 
-  console.log(products);
   return (
-    <div>
+    <div className="px-8 border-black py-8 sm:px-16">
       <section className="rounded bg-neutral-100 py-8 sm:py-12">
         <div className="mx-auto grid grid-cols-1 items-center justify-items-center gap-8 px-8 sm:px-16 md:grid-cols-2">
           <div className="max-w-md space-y-4">
